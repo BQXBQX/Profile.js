@@ -1,12 +1,12 @@
 import styles from "./index.module.scss";
-const Button = () => {
+const TrickButton = () => {
   return (
     <>
       <div className={styles["button-container"]}>
-        <button>next page</button>
+        <button disabled={true}>next page</button>
       </div>
     </>
   );
 };
 
-export default Button;
+export default TrickButton;

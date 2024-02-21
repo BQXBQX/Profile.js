@@ -1,4 +1,4 @@
-.want-container {
+.requirement-container {
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .want-content {
+  .requirement-content {
     height: 500px;
     width: 500px;
     position: relative;
@@ -21,6 +21,7 @@
     flex-direction: column;
     padding: 25px;
     box-sizing: border-box;
+    color: var(--text-100);
     &:hover div {
       border: 6px solid var(--clr);
       filter: drop-shadow(0 0 20px var(--clr));

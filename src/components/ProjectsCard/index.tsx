@@ -49,7 +49,7 @@ const ProjectsCard = () => {
       const target = document.getElementById("4");
       target?.classList.add(styles.next);
       setTimeout(() => {
-        const targetWant = document.getElementById("want");
+        const targetWant = document.getElementById("requirement");
         targetWant?.classList.add(styles.want);
       }, 200);
     }
