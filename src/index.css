@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  background-color: var(--bg-100) !important;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* 隐藏滚动条宽度 */
+}

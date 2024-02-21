@@ -1,0 +1,5 @@
+@mixin scroll-animation($animation-name) {
+  animation-name: $animation-name;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+}

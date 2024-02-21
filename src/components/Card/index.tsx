@@ -1,0 +1,172 @@
+import React, { useState } from "react";
+import styles from "./index.module.scss";
+import Basic from "./CardContent/basic";
+import Email from "./CardContent/email";
+import Phone from "./CardContent/phone";
+import Position from "./CardContent/position";
+
+interface CardProps {
+  className?: string;
+}
+
+const Card: React.FC<CardProps> = (className) => {
+  const [rotationY, setRotationY] = useState<number>(0);
+  const [rotationX, setRotationX] = useState<number>(0);
+  const [opacityIndex, setOpacityIndex] = useState<string>("basic");
+  const multiple = 300;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const box = e.currentTarget.getBoundingClientRect();
+    const calcY = (e.clientX - box.x - box.width / 2) / multiple;
+    const calcX = -(e.clientY - box.y - box.height / 2) / multiple;
+
+    setRotationX(calcX);
+    setRotationY(calcY);
+  };
+
+  const handleMouseLeave = () => {
+    setRotationX(0);
+    setRotationY(0);
+  };
+
+  const handleClick = (value: string) => {
+    setOpacityIndex(value);
+  };
+  return (
+    <>
+      <div
+        className={`${styles["card-container"]} ${className}`}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          className={styles.card}
+          style={{
+            transform: `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`,
+          }}
+        >
+          <div className={styles["nav-container"]}>
+            <div
+              className={styles["nav-item"]}
+              onClick={() => handleClick("basic")}
+            >
+              <svg
+                className="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="7450"
+                width="50"
+                height="50"
+              >
+                <path
+                  d="M512 73.142857c242.371048 0 438.857143 196.486095 438.857143 438.857143 0 152.210286-77.507048 286.329905-195.193905 365.056l-0.804571 0.658286A437.76 437.76 0 0 1 512 950.857143a436.809143 436.809143 0 0 1-242.809905-73.240381l-0.853333-0.560762C150.649905 798.329905 73.142857 664.210286 73.142857 512c0-242.371048 196.486095-438.857143 438.857143-438.857143z m0 73.142857C310.02819 146.285714 146.285714 310.02819 146.285714 512c0 100.010667 40.131048 190.659048 105.20381 256.658286l123.026286-152.795429a242.614857 242.614857 0 0 0 77.33638 34.937905l-136.533333 169.569524A364.007619 364.007619 0 0 0 512 877.714286c72.411429 0 139.897905-21.040762 196.705524-57.344l-136.533334-169.569524a242.614857 242.614857 0 0 0 77.28762-34.937905l123.050666 152.795429A364.544 364.544 0 0 0 877.714286 512c0-201.97181-163.742476-365.714286-365.714286-365.714286z m0 73.142857a195.047619 195.047619 0 1 1 0 390.095239 195.047619 195.047619 0 0 1 0-390.095239z m0 81.017905a114.029714 114.029714 0 1 0 0 228.059429 114.029714 114.029714 0 0 0 0-228.059429z"
+                  p-id="7451"
+                  fill="#57687c"
+                ></path>
+              </svg>
+            </div>
+            <div
+              className={styles["nav-item"]}
+              onClick={() => handleClick("email")}
+            >
+              <svg
+                className="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="7781"
+                id="mx_n_1708405207928"
+                width="50"
+                height="50"
+              >
+                <path
+                  d="M926.47619 355.644952V780.190476a73.142857 73.142857 0 0 1-73.142857 73.142857H170.666667a73.142857 73.142857 0 0 1-73.142857-73.142857V355.644952l73.142857 62.000762V780.190476h682.666666V417.645714l73.142857-62.000762zM853.333333 170.666667a74.044952 74.044952 0 0 1 26.087619 4.778666 72.704 72.704 0 0 1 30.622477 22.186667 73.508571 73.508571 0 0 1 10.678857 17.67619c3.169524 7.509333 5.12 15.652571 5.607619 24.210286L926.47619 243.809524v24.380952L559.469714 581.241905a73.142857 73.142857 0 0 1-91.306666 2.901333l-3.632762-2.925714L97.52381 268.190476v-24.380952a72.899048 72.899048 0 0 1 40.155428-65.292191A72.97219 72.97219 0 0 1 170.666667 170.666667h682.666666z m-10.971428 73.142857H181.638095L512 525.58019 842.361905 243.809524z"
+                  p-id="7782"
+                  fill="#57687c"
+                ></path>
+              </svg>
+            </div>
+
+            <div
+              className={styles["nav-item"]}
+              onClick={() => handleClick("phone")}
+            >
+              <svg
+                className="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="7912"
+                width="50"
+                height="50"
+              >
+                <path
+                  d="M446.756571 194.706286c33.792 52.882286 47.055238 90.307048 35.596191 136.655238-5.948952 24.405333-18.236952 40.033524-40.569905 58.709333l-22.991238 18.748953-2.779429 2.194285-15.36 11.580953c-10.410667 8.045714-14.482286 12.55619-15.262476 15.311238-4.681143 16.579048 3.218286 38.497524 22.016 67.876571 31.256381 48.615619 67.779048 89.941333 112.396191 126.122667 30.134857 24.478476 47.786667 33.718857 60.147809 31.256381 9.752381-1.950476 17.212952-7.68 34.450286-26.258286l7.021714-7.484952c26.843429-28.135619 45.494857-40.789333 77.238857-45.568 45.29981-6.802286 79.725714 7.94819 119.369143 40.71619l11.800381 10.069333 12.239238 10.72762 25.721905 21.504c40.667429 34.791619 61.488762 64.804571 58.416762 106.203428-2.31619 30.110476-15.872 48.176762-43.715048 72.094476l-6.314666 5.412572a288.914286 288.914286 0 0 0-5.022476 4.486095l-16.091429 14.969905-8.484571 7.753143a187.733333 187.733333 0 0 1-22.747429 17.627428c-47.079619 30.524952-103.984762 45.031619-167.643429 43.081143-55.02781-1.706667-101.010286-16.798476-156.330666-46.08-74.99581-39.716571-138.118095-93.817905-209.676191-173.641143-68.144762-75.971048-118.930286-154.819048-147.626666-236.836571-40.155429-114.834286-20.72381-237.372952 49.200761-316.537905 5.729524-6.509714 9.99619-10.727619 18.895239-18.285714l25.404952-21.089524 12.434286-10.922667c19.065905-16.481524 32.134095-24.30781 52.809143-28.184381 48.713143-9.142857 82.895238 15.701333 117.418666 64.902095l6.509714 9.581715 5.851429 8.923428 15.676952 24.380953z m-86.552381 166.741333l12.921905-9.752381 5.802667-4.827428 15.603809-12.629334c11.166476-9.337905 15.433143-14.726095 16.822858-20.333714 4.87619-19.846095-1.682286-40.252952-22.430477-73.776762l-3.803428-6.046476-23.137524-35.669334c-20.796952-30.695619-35.181714-41.862095-47.201524-39.594666-4.315429 0.804571-8.411429 3.145143-16.530286 9.971809l-14.945523 13.068191-20.821334 17.237333c-7.801905 6.509714-11.385905 9.801143-14.531047 13.165714l-5.778286 6.753524c-48.128 58.904381-61.366857 150.674286-30.573714 238.762667 25.136762 71.850667 70.851048 142.848 133.046857 212.163048 66.31619 73.97181 123.270095 122.806857 189.44 157.842285 46.275048 24.502857 82.236952 36.303238 124.342857 37.595429 49.298286 1.536 91.526095-9.264762 125.635048-31.353905 4.193524-2.706286 8.728381-6.290286 14.482285-11.410286l3.608381-3.242666 19.992381-18.627048 6.192762-5.485714 6.485333-5.558857c14.019048-12.04419 18.066286-17.456762 18.432-22.113524 0.731429-9.898667-7.728762-22.77181-28.672-41.350095l-4.36419-3.803429c-4.071619-3.486476-20.577524-17.091048-24.405333-20.382476l-18.041905-15.774476-6.680381-5.607619c-24.697905-20.358095-41.642667-27.477333-61.561905-24.478477-11.50781 1.706667-19.480381 7.143619-35.986286 24.551619l-10.556952 11.264c-24.380952 25.575619-40.911238 37.302857-68.656762 42.861715-42.349714 8.484571-73.313524-7.728762-120.612571-46.177524-50.761143-41.155048-92.452571-88.33219-127.902476-143.433143-29.525333-46.201905-43.081143-83.748571-30.841905-127.171048 6.582857-23.527619 19.894857-37.64419 45.226666-56.636952z"
+                  p-id="7913"
+                  fill="#57687c"
+                ></path>
+              </svg>
+            </div>
+
+            <div
+              className={styles["nav-item"]}
+              onClick={() => handleClick("position")}
+            >
+              <svg
+                className="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="8247"
+                id="mx_n_1708405333592"
+                width="50"
+                height="50"
+              >
+                <path
+                  d="M549.61981 133.022476l319.683047 203.605334A70.851048 70.851048 0 0 1 902.095238 396.361143v434.883047A70.89981 70.89981 0 0 1 831.146667 902.095238h-282.819048l0.024381-218.112h-71.826286v218.087619L192.853333 902.095238A70.89981 70.89981 0 0 1 121.904762 831.24419V390.241524c0-24.527238 12.678095-47.299048 33.54819-60.220953l318.659048-197.485714a70.972952 70.972952 0 0 1 75.50781 0.487619zM828.952381 828.952381V397.214476L511.488 195.047619 195.047619 391.119238V828.952381h211.309714v-216.551619h212.187429v216.527238L828.952381 828.952381z"
+                  p-id="8248"
+                  fill="#57687c"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div className={styles.avatar}>
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="avatar"
+            ></img>
+          </div>
+          <div className={styles["content-container"]}>
+            <div
+              style={{ opacity: `${opacityIndex === "basic" ? 1 : 0}` }}
+              className={styles["content-item"]}
+            >
+              <Basic></Basic>
+            </div>
+            <div
+              style={{ opacity: `${opacityIndex === "email" ? 1 : 0}` }}
+              className={styles["content-item"]}
+            >
+              <Email></Email>
+            </div>
+            <div
+              style={{ opacity: `${opacityIndex === "phone" ? 1 : 0}` }}
+              className={styles["content-item"]}
+            >
+              <Phone></Phone>
+            </div>
+            <div
+              style={{ opacity: `${opacityIndex === "position" ? 1 : 0}` }}
+              className={styles["content-item"]}
+            >
+              <Position></Position>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Card;

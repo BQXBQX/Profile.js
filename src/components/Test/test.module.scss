@@ -1,0 +1,30 @@
+.rotate {
+  animation: rotate 5s linear infinite;
+}
+.reverseRotate {
+  animation: reverseRotate 5s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(10deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+// @keyframes reverseRotate {
+//   100% {
+//     transform: rotate(-360deg);
+//   }
+// }
+.content {
+  background-color: aqua;
+}
+
+div {
+  transform-style: preserve-3d;
+  perspective: 100px;
+}

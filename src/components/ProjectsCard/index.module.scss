@@ -1,0 +1,72 @@
+@mixin animation($animation-name) {
+  animation-name: $animation-name;
+  animation-timeline: view();
+  animation-fill-mode: forwards;
+  animation-fill-mode: linear;
+  animation-range: entry 0%;
+}
+.projects-card-container {
+  @include animation(content-progress-right);
+  width: 1700px;
+  height: 950px;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  bottom: 0px;
+  transform-style: preserve-3d;
+  perspective: 3000px;
+  .projects-card-item {
+    height: 500px;
+    width: 350px;
+    background-color: var(--accent-200);
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    top: calc(0.5 * 1000px - 250px);
+    left: calc(0.5 * 1100px - 175px + 500px);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--accent-100);
+  }
+  .preview-card-disappear {
+    transform: translateX(-600px) translateY(-400px) rotateZ(-24deg);
+    opacity: 0;
+  }
+  .preview-card {
+    transform: translateX(-300px) translateY(-200px) rotateZ(-12deg);
+  }
+  .now-card {
+    z-index: 1;
+  }
+  .next-card {
+    transform: translateX(300px) translateY(200px) rotateZ(12deg);
+  }
+  .next-card-disappear {
+    transform: translateX(600px) translateY(400px) rotateZ(24deg);
+    opacity: 0;
+  }
+  .disappear {
+    display: none;
+  }
+  .next {
+    transform: translateZ(3000px) translateX(-250px);
+  }
+}
+
+@keyframes content-progress-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.want {
+  opacity: 1 !important;
+  z-index: 2 !important;
+}

@@ -1,0 +1,40 @@
+@use "../../variables" as *;
+.welcome-container {
+  position: fixed;
+  height: 95vh;
+  width: 100vw;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include scroll-animation(welcome-progress);
+  .welcome-span {
+    font-weight: bolder;
+    font-family: "Kanit", sans-serif;
+    font-size: 120px;
+    color: transparent;
+    background: linear-gradient(to right, var(--text-100), var(--text-200));
+    background-clip: text;
+  }
+  .content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .canvas-container {
+      height: 600px;
+      width: 600px;
+      bottom: -20px;
+    }
+  }
+}
+
+@keyframes welcome-progress {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: -0.5;
+  }
+}
