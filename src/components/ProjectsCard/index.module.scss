@@ -3,7 +3,7 @@
   animation-timeline: view();
   animation-fill-mode: forwards;
   animation-fill-mode: linear;
-  animation-range: entry 0%;
+  animation-range: exit 10%;
 }
 .projects-card-container {
   @include animation(content-progress-right);
@@ -49,7 +49,7 @@
     opacity: 0;
   }
   .disappear {
-    display: none;
+    display: none !important;
   }
   .next {
     transform: translateZ(3000px) translateX(-250px);

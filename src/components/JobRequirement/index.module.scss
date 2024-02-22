@@ -1,4 +1,4 @@
-.want-container {
+.requirement-container {
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .want-content {
+  .requirement-content {
     height: 500px;
     width: 500px;
     position: relative;
@@ -21,6 +21,7 @@
     flex-direction: column;
     padding: 25px;
     box-sizing: border-box;
+    color: var(--text-100);
     &:hover div {
       border: 6px solid var(--clr);
       filter: drop-shadow(0 0 20px var(--clr));
@@ -32,7 +33,7 @@
       left: -100px;
       top: -100px;
       border: 3px solid var(--bg-300);
-      transition: all 0.2s ease-in-out;
+      transition: all 0.4s ease-in-out;
     }
     .item-1 {
       border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;

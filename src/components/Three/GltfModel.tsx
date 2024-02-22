@@ -5,14 +5,12 @@ import { OrbitControls } from "@react-three/drei";
 import url from "../../assets/model/3/smol_ame_in_an_upcycled_terrarium_hololiveen.glb";
 
 interface GltfModelProps {
-  // url: string;
   rotateX?: number;
   rotateY?: number;
   rotateZ?: number;
 }
 
 const GltfModel: React.FC<GltfModelProps> = ({
-  // url,
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,

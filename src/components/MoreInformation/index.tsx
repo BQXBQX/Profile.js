@@ -3,7 +3,7 @@ import AbilityBack from "./Content/AbilityBack";
 import EducationBack from "./Content/EducationBack";
 import PracticeBack from "./Content/PracticeBack";
 import styles from "./index.module.scss";
-import Want from "../Want";
+import Want from "../JobRequirement";
 const MoreInformation = () => {
   return (
     <>
