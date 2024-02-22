@@ -48,4 +48,8 @@ npm run build
 pnpm run build
 ```
 
-<!-- ## Refr -->
+## Reference
+- https://codepen.io/supah/pen/xxJMbbg
+- https://codepen.io/Gogh/pen/gOqVqBx?editors=1100
+- https://codepen.io/jh3y/pen/jOdmWeK
+- https://sketchfab.com/3d-models/smol-ame-in-an-upcycled-terrarium-hololiveen-490cecc249d242188fda5ad3160a4b24
