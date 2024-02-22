@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+import data from "../../../profileconfig.json";
 
 const Email = () => {
   return (
@@ -6,17 +7,16 @@ const Email = () => {
       <div className={styles.main}>
         <h1>Personal Email:</h1>
         <h2>
-          XiaomingWang@gmail.com
+          {data.personalEmail}
           <div></div>
         </h2>
         <h1>Campus Email:</h1>
         <h2>
-          XiaomingWang@njupt.edu.cn
-          <div></div>
+          {data.campusEmail} <div></div>
         </h2>
         <h1>Other Email:</h1>
         <h2>
-          XiaomingWang@njupt.edu.cn
+          {data.otherEmail}
           <div></div>
         </h2>
       </div>

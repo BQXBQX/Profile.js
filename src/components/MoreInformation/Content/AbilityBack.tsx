@@ -1,12 +1,13 @@
 import styles from "./index.module.scss";
+import data from "../../../profileconfig.json";
 const AbilityBack = () => {
   return (
     <>
       <div className={styles["ability-back-container"]}>
         <h1>Skills </h1>
-        <h2>Programming Languages: Java, Python</h2>
-        <h2>Web Development: Spring Boot, HTML, CSS</h2>
-        <h2>Database: MySQL</h2>
+        {data.skills.map((item, index) => {
+          return <h2 key={index}>{item}</h2>;
+        })}
       </div>
     </>
   );

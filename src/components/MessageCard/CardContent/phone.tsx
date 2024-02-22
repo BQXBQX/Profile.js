@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+import data from "../../../profileconfig.json";
 
 const Phone = () => {
   return (
@@ -6,18 +7,16 @@ const Phone = () => {
       <div className={styles.main}>
         <h1>Personal Phone:</h1>
         <h2>
-          +86 13505150625
+          {data.personalPhone}
           <div></div>
         </h2>
         <h1>Campus Phone:</h1>
         <h2>
-          +86 13067890870
-          <div></div>
+          {data.campusPhone} <div></div>
         </h2>
         <h1>Other Phone:</h1>
         <h2>
-          +86 13067890870
-          <div></div>
+          {data.otherPhone} <div></div>
         </h2>
       </div>
     </>

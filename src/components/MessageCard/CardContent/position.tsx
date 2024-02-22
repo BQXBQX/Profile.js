@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+import data from "../../../profileconfig.json";
 
 const Position = () => {
   return (
@@ -6,7 +7,7 @@ const Position = () => {
       <div className={styles.main}>
         <h1>Home Address:</h1>
         <h2>
-          Wanchai District, Hong Kong Special Administrative Region <div></div>
+          {data.homeAddress} <div></div>
         </h2>
       </div>
     </>
