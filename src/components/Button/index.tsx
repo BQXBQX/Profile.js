@@ -2,13 +2,12 @@ import React, { ButtonHTMLAttributes } from "react";
 import styles from "./index.module.scss";
 
 const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  className,
   ...rest
 }) => {
   return (
     <>
-      <div className={styles["button-container"]}>
-        <button {...rest} />
-      </div>
+      <button className={`${styles["button-base"]} ${className}`} {...rest} />
     </>
   );
 };

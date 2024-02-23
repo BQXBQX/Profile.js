@@ -1,6 +1,6 @@
 .card-container {
-  height: 600px;
-  width: 1100px;
+  height: var(--card-container-height);
+  width: var(--card-container-width);
   transform-style: preserve-3d;
   perspective: 500px;
   display: flex;
@@ -8,8 +8,8 @@
   align-items: center;
   position: relative;
   .card {
-    height: 400px;
-    width: 800px;
+    height: var(--card-height);
+    width: var(--card-width);
     background: linear-gradient(
       to right,
       var(--primary-100),
@@ -17,17 +17,17 @@
     );
     color: var(--primary-200);
     transition: all 0.2s linear;
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     .nav-container {
       background-color: var(--bg-200);
-      height: 500px;
+      height: var(--nav-height);
       position: absolute;
-      width: 100px;
+      width: var(--nav-width);
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
         0 2px 4px -2px rgb(0 0 0 / 0.1);
-      top: -50px;
-      left: 40px;
-      border-radius: 10px;
+      top: 50%;
+      transform: translateY(-50%) translateX(40%);
+      border-radius: var(--nav-radius);
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -35,6 +35,13 @@
       .nav-item {
         transition: all 0.2s ease-in-out;
         cursor: pointer;
+        svg {
+          height: var(--svg-size);
+          width: var(--svg-size);
+          path {
+            fill: var(--primary-200);
+          }
+        }
       }
       .nav-item:hover {
         scale: 1.1;
@@ -47,10 +54,10 @@
     }
     .content-container {
       position: relative;
-      top: 50px;
-      left: 240px;
-      height: 300px;
-      width: 400px;
+      top: 50%;
+      transform: translateY(-50%) translateX(60%);
+      height: var(--content-height);
+      width: var(--content-width);
       .content-item {
         position: absolute;
         width: 100%;
@@ -61,9 +68,9 @@
     .avatar {
       position: absolute;
       right: 0;
-      transform: translate(20px, -20px);
-      height: 80px;
-      width: 80px;
+      transform: translate(25%, -25%);
+      height: var(--avatar-size);
+      width: var(--avatar-size);
       background-color: var(--accent-100);
       border-radius: 50%;
       display: flex;
@@ -75,9 +82,63 @@
       overflow: hidden;
       object-fit: contain;
       img {
-        height: 80px;
-        width: 80px;
+        height: var(--avatar-size);
+        width: var(--avatar-size);
       }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .card-container {
+    --card-container-width: 65%;
+    --card-container-height: 70%;
+  }
+  .card {
+    --card-width: 75%;
+    --card-height: 95%;
+    --card-radius: 20px;
+    .nav-container {
+      --nav-height: 125%;
+      --nav-width: 12%;
+      --nav-radius: 10px;
+      svg {
+        --svg-size: 50px;
+      }
+    }
+    .content-container {
+      --content-height: 90%;
+      --content-width: 50%;
+    }
+    .avatar {
+      --avatar-size: 80px;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .card-container {
+    --card-container-width: 100%;
+    --card-container-height: 55%;
+  }
+  .card {
+    --card-width: 90%;
+    --card-height: 95%;
+    --card-radius: 10px;
+    .nav-container {
+      --nav-height: 125%;
+      --nav-width: 15%;
+      --nav-radius: 10px;
+      svg {
+        --svg-size: 30px;
+      }
+    }
+    .content-container {
+      --content-height: 90%;
+      --content-width: 50%;
+    }
+    .avatar {
+      --avatar-size: 60px;
     }
   }
 }

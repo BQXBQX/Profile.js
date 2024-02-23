@@ -6,13 +6,13 @@ const Want = () => {
     <>
       <div className={styles["requirement-container"]} id="requirement">
         <div className={styles["requirement-content"]}>
-          <h1>
+          <h2>
             Job Requirement: <br></br>
-            <h2>{data.jobRequirement}</h2>
-          </h1>
-          <h1>Job Ideal:</h1>
+          </h2>
+          <h1>{data.jobRequirement}</h1>
+          <h2>Job Ideal:</h2>
           {data.jobIdeal.map((item, index) => {
-            return <h2 key={index}>{item}</h2>;
+            return <h3 key={index}>{item}</h3>;
           })}
           <div className={styles["item-1"]}></div>
           <div className={styles["item-2"]}> </div>

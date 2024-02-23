@@ -10,3 +10,31 @@
 ::-webkit-scrollbar {
   width: 0; /* 隐藏滚动条宽度 */
 }
+
+@media screen and (min-width: 430px) and (max-width: 1125px) {
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 14px;
+  }
+}
+
+/* 在768px至1023px之间的屏幕上应用字体大小为100px */
+@media screen and (min-width: 1125px) and (max-width: 1650px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  h1 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 12px;
+  }
+}

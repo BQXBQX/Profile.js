@@ -20,6 +20,10 @@ Profile.js 是一个前端的面试简历的页面框架。含有有趣的页面
 
 打开`src/profileconfig.json`文件，通过配置相关简历内容，页面会自动生成内容呈现的页面。
 
+## 主题颜色
+
+推荐使用[AI Colors](https://aicolors.com)配色，将网站的配色复制后，粘贴到`src/App.scss`文件中，再将原来的主题配色注释或者删除。
+
 ## Start
 
 - Clone the repository

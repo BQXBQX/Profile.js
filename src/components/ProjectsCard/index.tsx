@@ -7,8 +7,6 @@ const ProjectsCard = () => {
   const [cardIndex, setCardIndex] = useState<number>(0);
 
   const cardState = (index: number) => {
-    // const target = document.getElementById("card");
-    // target?.style.height = window.innerHeight;
     switch (index - cardIndex) {
       case -2:
         return styles["preview-card-disappear"];
@@ -24,6 +22,11 @@ const ProjectsCard = () => {
         return styles["disappear"];
     }
   };
+
+  const isMobileDevice =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
   const cardHandleClick = (index: number) => {
     switch (index - cardIndex) {
@@ -64,6 +67,15 @@ const ProjectsCard = () => {
     }
   };
 
+  const showWant = () => {
+    const target = document.getElementById("last");
+    target?.classList.add(styles.next);
+    setTimeout(() => {
+      const targetWant = document.getElementById("requirement");
+      targetWant?.classList.add(styles.want);
+    }, 200);
+  };
+
   useEffect(() => {
     if (cardIndex !== 0) {
       document.body.style.overflow = "hidden";
@@ -79,6 +91,7 @@ const ProjectsCard = () => {
         className={styles["projects-card-container"]}
         onWheel={handleWheel}
         id="card"
+        style={{ height: `${window.innerHeight}px` }}
       >
         {data.projectExperience.map((item, index) => {
           return (
@@ -92,9 +105,26 @@ const ProjectsCard = () => {
               <h2>Description:{item.description}</h2>
               <Button
                 onClick={() => window.location.replace(item.projectGitHubUrl)}
+                className={styles["button-go"]}
               >
                 GO!
               </Button>
+              {isMobileDevice && (
+                <>
+                  <Button
+                    className={styles["button-next"]}
+                    onClick={() => setCardIndex(cardIndex + 1)}
+                  >
+                    Next
+                  </Button>
+                  <Button
+                    className={styles["button-pre"]}
+                    onClick={() => setCardIndex(cardIndex - 1)}
+                  >
+                    pre
+                  </Button>
+                </>
+              )}
             </div>
           );
         })}
@@ -111,7 +141,13 @@ const ProjectsCard = () => {
           }}
           key={data.projectExperience.length}
         >
-          <h1 style={{ fontSize: "50px" }}>Keep sliding !</h1>
+          {isMobileDevice ? (
+            <Button style={{ fontSize: "25px" }} onClick={showWant}>
+              Click Here!
+            </Button>
+          ) : (
+            <h1 className={styles["last-item"]}>Keep sliding !</h1>
+          )}
         </div>
       </div>
     </>

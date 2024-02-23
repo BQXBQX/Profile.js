@@ -4,10 +4,20 @@ import EducationBack from "./Content/EducationBack";
 import PracticeBack from "./Content/PracticeBack";
 import styles from "./index.module.scss";
 import Want from "../JobRequirement";
+import { useEffect, useState } from "react";
 const MoreInformation = () => {
+  const [height, setHeight] = useState<number>();
+  const target = document.getElementById("svg");
+  const svgHeight = target?.getBoundingClientRect().height;
+  useEffect(() => {
+    setHeight(svgHeight);
+  }, [svgHeight]);
   return (
     <>
-      <div className={styles["more-information-container"]}>
+      <div
+        className={styles["more-information-container"]}
+        style={{ height: `${height}px` }}
+      >
         <div className={styles["more-information-content"]}>
           <div>
             <EducationBack></EducationBack>
@@ -19,6 +29,7 @@ const MoreInformation = () => {
               viewBox="0 0 1440 4096"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              id="svg"
             >
               <g className={styles.backers}>
                 <path
