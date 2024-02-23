@@ -1,33 +1,32 @@
 @mixin content {
   position: absolute;
   color: var(--text-100);
-  width: 500px;
+  width: 40%;
 }
 
 @mixin animation($animation-name) {
   animation-name: $animation-name;
   animation-timeline: view();
   animation-fill-mode: forwards;
-  animation-fill-mode: linear;
   animation-range: entry 0%;
 }
 .education-back-container {
   @include content();
-  top: 700px;
-  left: 200px;
+  top: var(--top);
+  left: var(--left);
   @include animation(content-progress-left);
 }
 .ability-back-container {
   @include content();
-  top: 1400px;
-  left: 200px;
+  top: var(--top);
+  left: var(--left);
   @include animation(content-progress-left);
 }
 
 .practice-back-container {
   @include content();
-  top: 2600px;
-  right: 350px;
+  top: var(--top);
+  right: var(--right);
   @include animation(content-progress-right);
 }
 
@@ -46,5 +45,35 @@
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .education-back-container {
+    --top: 8%;
+    --left: 10%;
+  }
+  .ability-back-container {
+    --top: 28%;
+    --left: 10%;
+  }
+  .practice-back-container {
+    --top: 50%;
+    --right: 20%;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .education-back-container {
+    --top: 15%;
+    --left: 10%;
+  }
+  .ability-back-container {
+    --top: 32%;
+    --left: 10%;
+  }
+  .practice-back-container {
+    --top: 58%;
+    --right: 20%;
   }
 }

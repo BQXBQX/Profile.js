@@ -2,13 +2,12 @@
   animation-name: $animation-name;
   animation-timeline: view();
   animation-fill-mode: forwards;
-  animation-fill-mode: linear;
   animation-range: entry 0%;
 }
 .projects-card-container {
   @include animation(content-progress-right);
-  width: 1700px;
-  height: 950px;
+  width: var(--container-width);
+  height: var(--container-height);
   position: absolute;
   overflow: hidden;
   right: 0px;
@@ -16,43 +15,57 @@
   transform-style: preserve-3d;
   perspective: 3000px;
   .projects-card-item {
-    height: 500px;
-    width: 350px;
+    height: var(--card-height);
+    width: var(--card-width);
     background-color: var(--accent-200);
     position: absolute;
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
-    top: calc(0.5 * 1000px - 250px);
-    left: calc(0.5 * 1100px - 175px + 500px);
+    top: var(--card-top);
+    left: var(--card-left);
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-    padding: 20px;
+    transition: all 0.8s cubic-bezier(0, 0.02, 0, 1);
+    padding: var(--card-padding);
     box-sizing: border-box;
     color: var(--accent-100);
+    .button-go {
+      right: 4%;
+      bottom: 3%;
+      position: absolute;
+    }
   }
   .preview-card-disappear {
-    transform: translateX(-600px) translateY(-400px) rotateZ(-24deg);
+    transform: translateX(calc(var(--item-translate-x) * -2))
+      translateY(calc(var(--item-translate-y) * -2))
+      rotateZ(calc(var(--item-deg) * (-2)));
     opacity: 0;
   }
   .preview-card {
-    transform: translateX(-300px) translateY(-200px) rotateZ(-12deg);
+    transform: translateX(calc(var(--item-translate-x) * (-1)))
+      translateY(calc(var(--item-translate-y) * (-1)))
+      rotateZ(calc(var(--item-deg) * (-1)));
+    opacity: var(--phone-opacity);
   }
   .now-card {
     z-index: 1;
   }
   .next-card {
-    transform: translateX(300px) translateY(200px) rotateZ(12deg);
+    transform: translateX(calc(var(--item-translate-x)))
+      translateY(calc(var(--item-translate-y))) rotateZ(calc(var(--item-deg)));
   }
   .next-card-disappear {
-    transform: translateX(600px) translateY(400px) rotateZ(24deg);
+    transform: translateX(calc(var(--item-translate-x) * 2))
+      translateY(calc(var(--item-translate-y) * 2))
+      rotateZ(calc(var(--item-deg) * (2)));
     opacity: 0;
   }
   .disappear {
     display: none !important;
   }
-  .next {
-    transform: translateZ(3000px) translateX(-250px);
+
+  .last-item {
+    font-size: 30px;
   }
 }
 
@@ -69,4 +82,63 @@
 .want {
   opacity: 1 !important;
   z-index: 2 !important;
+}
+
+@media screen and (orientation: landscape) {
+  .projects-card-container {
+    --container-width: 100%;
+    .projects-card-item {
+      --card-width: 25%;
+      --card-height: 60%;
+      --card-radius: 20px;
+      --card-padding: 20px;
+      --item-translate-x: 18vw;
+      --item-translate-y: 22vh;
+      --item-deg: 12deg;
+      --card-top: 28vh;
+      --card-left: 52vw;
+    }
+    .next {
+      transform: translateZ(3000px) translateX(-67%);
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .projects-card-container {
+    height: 100vh !important;
+    --container-width: 100%;
+    .projects-card-item {
+      --card-width: 60%;
+      --card-height: 28%;
+      --card-radius: 10px;
+      --card-padding: 10px;
+      --item-translate-x: 18vw;
+      --item-translate-y: 22vh;
+      --item-deg: 30deg;
+      --card-top: 70%;
+      --card-left: 30vw;
+    }
+    .preview-card {
+      --phone-opacity: 0;
+    }
+
+    .button-go {
+      --right: 4%;
+      --bottom: 3%;
+    }
+    .button-next {
+      position: absolute;
+      left: 20%;
+      bottom: 3%;
+    }
+    .button-pre {
+      position: absolute;
+      left: 4%;
+      bottom: 3%;
+    }
+    .next {
+      transform: translateZ(3000px) translateY(-160%);
+    }
+  }
 }
