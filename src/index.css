@@ -20,7 +20,6 @@
   }
 }
 
-/* 在768px至1023px之间的屏幕上应用字体大小为100px */
 @media screen and (min-width: 1125px) and (max-width: 1650px) {
   h1 {
     font-size: 24px;
@@ -36,5 +35,23 @@
   }
   h2 {
     font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1650px) and (max-width: 2000px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 32px;
   }
 }

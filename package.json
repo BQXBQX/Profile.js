@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-three/drei": "^9.98.0",
     "@react-three/fiber": "^8.15.16",
+    "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "scss": "^0.2.4",
