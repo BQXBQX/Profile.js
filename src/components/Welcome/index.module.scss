@@ -1,6 +1,7 @@
 @use "../../variables" as *;
 .welcome-container {
   position: fixed;
+  top: 0;
   height: 95vh;
   width: 100vw;
   padding: var(--padding);
@@ -39,10 +40,10 @@
 }
 @keyframes welcome-progress-phone {
   from {
-    scale: 1;
+    transform: translateY(0);
   }
   to {
-    scale: 0.5;
+    transform: translateY(-50%);
   }
 }
 @media screen and (min-width: 1650px) {
@@ -65,6 +66,7 @@
 @media screen and (orientation: landscape) {
   .welcome-container {
     @include scroll-animation(welcome-progress);
+    animation-range: entry 0%;
     --padding: 40px;
     .canvas-container {
       --canvas-size: 35vw;
