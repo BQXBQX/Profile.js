@@ -24,6 +24,21 @@ Profile.js 是一个前端的面试简历的页面框架。含有有趣的页面
 
 推荐使用[AI Colors](https://aicolors.com)配色，将网站的配色复制后，粘贴到`src/App.scss`文件中，再将原来的主题配色注释或者删除。
 
+## 展示图
+
+### PC(Chrome)
+
+![alt text](/public/image-1.png)
+![alt text](/public/image.png)
+![alt text](/public/image-2.png)
+![alt text](/public/image-3.png)
+
+### Phone(iPhone 14 Pro Max)
+
+![alt text](/public/phone-image.png)
+![alt text](/public/phone-image-1.png)
+![alt text](/public/phone-image-2.png)
+
 ## Start
 
 - Clone the repository
@@ -53,6 +68,7 @@ pnpm run build
 ```
 
 ## Reference
+
 - https://codepen.io/supah/pen/xxJMbbg
 - https://codepen.io/Gogh/pen/gOqVqBx?editors=1100
 - https://codepen.io/jh3y/pen/jOdmWeK
