@@ -35,11 +35,11 @@ Profile.js 是一个前端的面试简历的页面框架。含有有趣的页面
 
 ### Phone(iPhone 14 Pro Max)
 
-## Start
 ![alt text](/public/phone-image.png)
 ![alt text](/public/phone-image-1.png)
 ![alt text](/public/phone-image-2.png)
 
+## Start
 
 - Clone the repository
 
