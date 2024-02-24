@@ -118,12 +118,12 @@
 
 @media screen and (orientation: portrait) {
   .card-container {
-    --card-container-width: 100%;
-    --card-container-height: 55%;
+    --card-container-width: 90vw;
+    --card-container-height: 40vh;
   }
   .card {
-    --card-width: 90%;
-    --card-height: 95%;
+    --card-width: 81vw;
+    --card-height: 38vh;
     --card-radius: 10px;
     .nav-container {
       --nav-height: 125%;
