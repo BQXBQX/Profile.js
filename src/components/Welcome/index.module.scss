@@ -13,9 +13,17 @@
     font-size: var(--welcome-font-size);
     font-weight: bolder;
     font-family: "Kanit", sans-serif;
-    color: transparent;
-    background: linear-gradient(to right, var(--text-100), var(--text-200));
-    background-clip: text;
+    color: var(--text-100);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .space-before {
+      margin-left: 1%;
+    }
+    div {
+      transform: translateY(-30%);
+      opacity: 0;
+    }
   }
   .content-container {
     display: flex;

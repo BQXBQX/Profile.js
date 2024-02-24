@@ -7,9 +7,10 @@
 </h1>
 
 <p align="center">
-<img src="https://img.shields.io/badge/frame-React18-blue">
-<img src="https://img.shields.io/badge/npm-three0.16-white">
-<img src="https://img.shields.io/badge/npm-Scss0.2.4-pink">
+<img src="https://img.shields.io/badge/frame-React 18.2.0-blue">
+<img src="https://img.shields.io/badge/npm-three 0.161.0-white">
+<img src="https://img.shields.io/badge/npm-Scss 0.2.4-pink">
+<img src="https://img.shields.io/badge/npm-GSAP 3.12.5-green">
 </p>
 
 ## 简介
